@@ -1,7 +1,0 @@
-brew 'awscli'
-brew 'style'
-brew 'aspell'
-brew 'haskell-stack'
-brew 'tidy-html5'
-brew 'the_silver_searcher'
-cask 'mactex'
