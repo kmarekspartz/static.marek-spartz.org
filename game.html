@@ -9,20 +9,29 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Game.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Game" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="93D343C5-B950-4827-A19B-F258B6257B96" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Home" tags="" position="900,400" size="100,100">Welcome home!
+<tw-storydata name="Game" startnode="3" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="93D343C5-B950-4827-A19B-F258B6257B96" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Pick an activity for me" tags="" position="950,650" size="100,100">(print: 1st of (shuffled:
+&quot;Make some art&quot;,
+&quot;Play a game&quot;,
+&quot;Do some math&quot;,
+&quot;Draw a Get Movin&#39; Card&quot;,
+&quot;Get outside&quot;,
+&quot;Practice Hmong&quot;,
+&quot;Play some music&quot;)).
+
+Do you want to go [[Home]]?</tw-passagedata><tw-passagedata pid="2" name="Draw a card" tags="" position="800,550" size="100,100">Your card is (random: 1, 10).
+
+Do you want to go [[Home]]?</tw-passagedata><tw-passagedata pid="3" name="Home" tags="" position="800,300" size="100,100">Welcome home!
 
 Today is (current-date:) and the time is (current-time:).
 
 What would you like to do today?
 
-- [[Draw a card]]
-- [[Type a story]]
-- [[Show me a math problem]]
-- [[ Pick an activity for me]]</tw-passagedata><tw-passagedata pid="2" name="Draw a card" tags="" position="900,525" size="100,100">Your card is (random: 1, 10).
+- [[Draw a card]]?
+- [[Type a story]]?
+- [[Show me a math problem]]?
+- [[Pick an activity for me]]?
 
-Do you want to go [[Home]]?</tw-passagedata><tw-passagedata pid="3" name="Type a story" tags="" position="1025,525" size="100,100">(input-box:, &quot;X&quot;, 25)
-
-Do you want to go [[Home]]?</tw-passagedata><tw-passagedata pid="4" name="Show me a math problem" tags="" position="775,525" size="100,100">(print: 1st of (shuffled: &quot;Plant flowers in a row of 6.
+- [[Read a book]]?</tw-passagedata><tw-passagedata pid="4" name="Show me a math problem" tags="" position="625,575" size="100,100">(print: 1st of (shuffled: &quot;Plant flowers in a row of 6.
 Add another row of 7 flowers.
 How many flowers total?&quot;,
 &quot;You have 24 vegetable seeds.
@@ -59,16 +68,245 @@ You have 20 tokens.
 What&#39;s the best garden you can plant?&quot;))
 
 ---
-Do you want to go [[Home]]?</tw-passagedata><tw-passagedata pid="5" name=" Pick an activity for me" tags="" position="900,650" size="100,100">(print: 1st of (shuffled:
-&quot;Make some art&quot;,
-&quot;Play a game&quot;,
-&quot;Do some math&quot;,
-&quot;Draw a Get Movin&#39; Card&quot;,
-&quot;Get outside&quot;,
-&quot;Practice Hmong&quot;,
-&quot;Play some music&quot;)).
 
-Do you want to go [[Home]]?
+Do you want to go [[Home]]?</tw-passagedata><tw-passagedata pid="5" name="Type a story" tags="" position="1025,525" size="100,100">(input-box: 2bind $story, &quot;X&quot;, 5)
+
+{(if: $story&#39;s length is 0 and (saved-games: ) contains &quot;Story&quot;)[
+   (link: &quot;Restore your last saved story&quot; )[
+      (load-game: &quot;Story&quot;)
+  ].
+]}
+
+[[Save this story for next time]].
+
+
+Or do you want to go [[Home]]?</tw-passagedata><tw-passagedata pid="6" name="Save this story for next time" tags="" position="1150,650" size="100,100">(if: $story&#39;s length &gt; 0 and (save-game:&quot;Story&quot;) and (saved-games:) contains &quot;Story&quot;)[
+👍
+]
+(else: )[
+Sorry, I couldn&#39;t save your game.
+]
+
+[[Continue your story-&gt;Type a story]]?
+</tw-passagedata><tw-passagedata pid="7" name="Read a book" tags="" position="800,425" size="100,100">How about [[Millions of Cats]]?</tw-passagedata><tw-passagedata pid="8" name="Millions of Cats" tags="" position="800,700" size="100,100">(enchant: ?Page, (background: white) + (text-color: black))
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/01-MoC-Cover-10.jpg&quot; width=&quot;512&quot;/&gt;
+
+
+
+Millions of Cats
+BY WANDA GÁG
+
+PUBLISHED IN NEW YORK by
+COWARD-McCANN, Inc.
+in the Year 1928
+
+Copyright 1928 by
+COWARD McCANN, INC.
+All rights reserved.
+
+Printed in U.S.A.
+By the Jersey City Printing Co.
+
+MILLIONS OF CATS
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/02-MoC-Endpaper.jpg&quot; width=&quot;512&quot;/&gt;
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/03-MoC-Titlepage.jpg&quot; width=&quot;512&quot;/&gt;
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/05-MoC-P1-2.jpg&quot; width=&quot;512&quot;/&gt;
+Once upon a time there was a very old man and a very old woman. They lived in a nice clean house which had flowers all around it, except where the door was. But they couldn’t be happy because they were so very lonely.
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/05-MoC-P1-1.jpg&quot; width=&quot;512&quot;/&gt;
+
+
+
+“If we only had a cat!” sighed the very old woman.
+
+“A cat?” asked the very old man.
+
+
+
+“Yes, a sweet little fluffy cat,” said the very old woman.
+
+“I will get you a cat, my dear,” said the very old man.
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/06-MoC-P2.jpg&quot; width=&quot;512&quot;/&gt;
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/07-MoC-P3.jpg&quot; width=&quot;512&quot;/&gt;
+
+And he set out over the hills to look for one. He climbed over the sunny hills. He trudged through the cool valleys. He walked a long, long time and at last he came to a hill which was quite covered with cats.
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/08-MoC-P4.jpg&quot; width=&quot;512&quot;/&gt;
+Cats here, cats there,
+Cats and kittens everywhere,
+Hundreds of cats,
+Thousands of cats,
+Millions and billions and trillions of cats.
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/09-MoC-P6-1.jpg&quot; width=&quot;512&quot;/&gt;
+“Oh,” cried the old man joyfully, “Now I can choose the prettiest cat and take it home with me!” So he chose one. It was white.
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/09-MoC-P6-2.jpg&quot; width=&quot;512&quot;/&gt;
+But just as he was about to leave, he saw another one all black and white and it seemed just as pretty as the first. So he took this one also.
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/10-MoC-P7-1.jpg&quot; width=&quot;512&quot;/&gt;
+But then he saw a fuzzy grey kitten way over here which was every bit as pretty as the others so he took it too.
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/10-MoC-P7-2.jpg&quot; width=&quot;512&quot;/&gt;
+And now he saw one way down in a corner which he thought too lovely to leave so he took this too.
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/11-MoC-P8.jpg&quot; width=&quot;512&quot;/&gt;
+And just then, over here, the very old man found a kitten which was black and very beautiful.
+“It would be a shame to leave that one,” said the very old man. So he took it.
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/12-MoC-P9.jpg&quot; width=&quot;512&quot;/&gt;
+And now, over there, he saw a cat which had brown and yellow stripes like a baby tiger.
+“I simply must take it!” cried the very old man, and he did.
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/13-MoC-P10.jpg&quot; width=&quot;512&quot;/&gt;
+
+So it happened that every time the very old man looked up, he saw another cat which was so pretty he could not bear to leave it, and before he knew it, he had chosen them all.
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/14-MoC-P12.jpg&quot; width=&quot;512&quot;/&gt;
+
+And so he went back over the sunny hills and down through the cool valleys, to show all his pretty kittens to the very old woman.
+
+It was very funny to see those hundreds and thousands and millions and billions and trillions of cats following him.
+
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/15-MoC-P13.jpg&quot; width=&quot;512&quot;/&gt;
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/16-MoC-P14.jpg&quot; width=&quot;512&quot;/&gt;
+ 
+
+They came to a pond.
+“Mew, mew! We are thirsty!” cried the
+Hundreds of cats,
+Thousands of cats,
+Millions and billions and trillions of cats.
+
+“Well, here is a great deal of water,” said the very old man.
+
+Each cat took a sip of water, and the pond was gone!
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/17-MoC-P15.jpg&quot; width=&quot;512&quot;/&gt;
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/18-MoC-P16.jpg&quot; width=&quot;512&quot;/&gt;
+
+
+“Mew, mew! Now we are hungry!” said the
+Hundreds of cats,
+Thousands of cats,
+Millions and billions and trillions of cats.
+
+“There is much grass on the hills,” said the very old man.
+
+Each cat ate a mouthful of grass and not a blade was left!
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/19-MoC-P17.jpg&quot; width=&quot;512&quot;/&gt;
+
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/20-MoC-P18.jpg&quot; width=&quot;512&quot;/&gt;
+
+Pretty soon the very old woman saw them coming.
+
+“My dear!” she cried, “What are you doing? I asked for one little cat and what do I see?—
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/21-MoC-P19.jpg&quot; width=&quot;512&quot;/&gt;
+
+
+“Cats here, cats there,
+Cats and kittens everywhere,
+Hundreds of cats,
+Thousands of cats,
+Millions and billions and trillions of cats.”
+
+“But we can never feed them all,” said the very old woman, “They will eat us out of house and home.”
+
+“I never thought of that,” said the very old man, “What shall we do?”
+
+The very old woman thought for a while and then she said, “I know! We will let the cats decide which one we should keep.”
+
+“Oh yes,” said the very old man, and he called to the cats, “Which one of you is the prettiest?”
+
+“I am!”
+
+“I am!”
+
+“No, I am!”
+
+“No, I am the prettiest!” “I am!”
+
+“No, I am! I am! I am!” cried hundreds and thousands and millions and billions and trillions of voices, for each cat thought itself the prettiest.
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/22-MoC-P21.jpg&quot; width=&quot;512&quot;/&gt;
+
+And they began to quarrel.
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/23-MoC-P22.jpg&quot; width=&quot;512&quot;/&gt;
+
+They bit and scratched and clawed each other and made such a great noise that the very old man and the very old woman ran into the house as fast as they could. They did not like such quarreling. But after a while the noise stopped and the very old man and the very old woman peeped out of the window to see what had happened. They could not see a single cat!
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/24-MoC-P23.jpg&quot; width=&quot;512&quot;/&gt;
+
+“I think they must have eaten each other all up,” said the very old woman, “It’s too bad!”
+
+“But look!” said the very old man, and he pointed to a bunch of high grass. In it sat one little frightened kitten. They went out and picked it up. It was thin and scraggly.
+
+“Poor little kitty,” said the very old woman.
+
+“Dear little kitty,” said the very old man, “how does it happen that you were not eaten up with all those hundreds and thousands and millions and billions and trillions of cats?”
+
+“Oh, I’m just a very homely little cat,” said the kitten, “So when you asked who was the prettiest, I didn’t say anything. So nobody bothered about me.
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/25-MoC-P24.jpg&quot; width=&quot;512&quot;/&gt;
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/26-MoC-P25.jpg&quot; width=&quot;512&quot;/&gt;
+
+
+
+
+
+They took the kitten into the house, where the very old woman gave it a warm bath and brushed its fur until it was soft and shiny.
+
+Every day they gave
+it plenty of
+milk—
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/27-MoC-P26.jpg&quot; width=&quot;512&quot;/&gt;
+
+—and soon it grew
+nice and
+plump.
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/28-MoC-P27.jpg&quot; width=&quot;512&quot;/&gt;
+
+“And it is a very pretty cat, after
+all!” said the very old woman.
+“It is the most beautiful cat in the
+whole world,” said the very old man.
+“I ought to know, for I’ve seen—
+Hundreds of cats,
+Thousands of cats,
+Millions and billions and trillions of cats—
+and not one is as pretty as this one.”
+
+
+
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/29-MoC-P29.jpg&quot; width=&quot;512&quot;/&gt;
+&lt;img src=&quot;https://static.marek-spartz.org/game/MoC-images/30-MoC-P30.jpg&quot; width=&quot;512&quot;/&gt;
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
